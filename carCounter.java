@@ -81,7 +81,7 @@ public class carCounter {
                 Imgproc.approxPolyDP(curve, approx, 0.02*peri, true);
                 Rect bbox = Imgproc.boundingRect(approx);
 
-                if (bbox.height < 200 & bbox.width < 100) {
+                if (bbox.height < 200 & bbox.width < 100 & bbox.y > 20) {
                     Imgproc.putText(imgToDraw, String.valueOf(ran.nextInt(1000)), new Point(bbox.x, bbox.y+10), Core.FONT_HERSHEY_SIMPLEX, 0.4, new Scalar(0,0,255), 1);
                     Imgproc.rectangle(imgToDraw, new Point(bbox.x, bbox.y), new Point(bbox.x + bbox.width, bbox.y + bbox.height), new Scalar(0, 0, 255), 1);
                     int carPos = Integer.parseInt(String.valueOf((bbox.y + bbox.height) / 2));
